@@ -1,0 +1,96 @@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="updateProfile" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Update your details</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ path_for('post.profile') }}" method="post">
+                        <fieldset>
+                            <div class="form-group {{ errors.name ? 'has-error': '' }} ">
+                                <input class="form-control" placeholder="Name" name="name" type="text" value="{{ errors ? old.name : auth.user.name }}">
+                                {% if errors.name %}
+                                    <span class="help-block">
+                                    {{ errors.name | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+                            <div class="form-group {{ errors.rank ? 'has-error': '' }} ">
+                                <input class="form-control" placeholder="Rank" name="rank" type="text" value="{{ errors ? old.rank : auth.user.rank }}">
+                                {% if errors.rank %}
+                                    <span class="help-block">
+                                    {{ errors.rank | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group {{ errors.quote ? 'has-error': '' }} ">
+                                <input class="form-control" placeholder="Favourite quote" name="quote" type="text" value="{{ errors ? old.quote : auth.user.quote}}">
+
+
+                                {% if errors.quote %}
+                                    <span class="help-block">
+                                    {{ errors.quote | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group {{ errors.about ? 'has-error': '' }} ">
+                                 <textarea class="form-control" placeholder="About you" name="about">{{ errors ? old.about : auth.user.about}}</textarea>
+                                {% if errors.about %}
+                                    <span class="help-block">
+                                    {{ errors.about | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="form-group {{ errors.weight ? 'has-error': '' }} ">
+
+                                    <select class="selectpicker form-control"  name="weight" title="Weight">
+                                        {% for i in range(50,130) %}
+                                            <option {% if not errors and i == auth.user.weight %} selected {% elseif errors and i == old.weight %} selected {% endif %}  value="{{ i }}">{{ i }} kg</option>
+                                        {% endfor %}
+                                    </select>
+
+                                {% if errors.weight %}
+                                    <span class="help-block">
+                                    {{ errors.weight | first }}
+                                </span>
+                                {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                 <div class="form-group {{ errors.age ? 'has-error': '' }} ">
+
+                                    <select class="selectpicker form-control"  name="age" title="Age" >
+                                        {% for i in range(18,60) %}
+                                            <option {% if not errors and i == auth.user.age %} selected {% elseif errors and i == old.age %} selected {% endif %} >{{ i }} </option>
+                                        {% endfor %}
+                                    </select>
+
+                                {% if errors.age %}
+                                    <span class="help-block">
+                                    {{ errors.age | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+                                </div>
+                            </div>
+
+                            <input type="submit" value="Update" class="btn btn-lg btn-custom btn-block">
+                            {{ csrf.field | raw }}
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

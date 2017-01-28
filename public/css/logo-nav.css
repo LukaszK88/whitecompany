@@ -1,0 +1,40 @@
+/*
+ * Start Bootstrap - Logo Nav (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+.navbar-brand {
+    height: 130px;
+}
+
+.nav >li >a {
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: all 0.2s ease-out;
+
+
+}
+.navbar-toggle {
+    padding: 10px;
+    margin: 25px 15px 25px 0;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav > li > a:hover{
+        border-top: 4px solid white;
+
+    }
+    .navbar-nav > li > a:active{
+        border-top: 4px solid white;
+    }
+
+    .modal-open .modal,.navbar-nav > li > a:focus{
+        outline:none!important;
+        border-top: 4px solid white;
+    }
+}
+.modal-open .modal,.navbar-nav > li > a:focus{
+    outline:none!important;
+}

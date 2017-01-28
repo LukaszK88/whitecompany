@@ -1,0 +1,42 @@
+
+
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-sm" id="signUp" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Register</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="{{ path_for('auth.signup') }}" method="post">
+                            <fieldset>
+                                <div class="form-group {{ errors.email ? 'has-error': '' }} ">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="text" value="{{ old.email }}">
+                                    {% if errors.email %}
+                                        <span class="help-block">
+                                    {{ errors.email | first }}
+                                </span>
+                                    {% endif %}
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+
+                                <input type="submit" value="Register" class="btn btn-lg btn-custom btn-block">
+                                {{ csrf.field | raw }}
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
