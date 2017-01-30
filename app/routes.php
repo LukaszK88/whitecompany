@@ -34,7 +34,9 @@ $app->group('',function(){
 
     $this->post('/', 'UserController:postProfile')->setName('post.profile');
         
-        $this->post('/record', 'UserController:postRecordBohurt')->setName('post.record.bohurt');
+        $this->post('/bohurt', 'UserController:postRecordBohurt')->setName('post.record.bohurt');
+        $this->post('/triathlon', 'UserController:postRecordTriathlon')->setName('post.record.triathlon');
+        $this->post('/sword', 'UserController:postRecordSword')->setName('post.record.sword');
 
 
     

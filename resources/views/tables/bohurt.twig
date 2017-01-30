@@ -24,8 +24,9 @@
             <tr>
                 {% set counter = ( counter | default(0) ) + 1 %}
                 <td>{{ counter }}</td>
+
                 <td>{{ user.name }}</td>
-                
+
                 <td>{{ user.bohurt.fights }}</td>
                 <td>{{ user.bohurt.won }}</td>
                 <td width="7%">{{ user.bohurt.last }}</td>

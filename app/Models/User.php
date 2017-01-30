@@ -48,5 +48,15 @@ class User extends Model{
 
         return $this->hasOne(Bohurt::class);
     }
+    
+    public function triathlon(){
+
+        return $this->hasOne(Triathlon::class);
+    }
+
+    public function sword(){
+
+        return $this->hasOne(Sword::class);
+    }
 
 }

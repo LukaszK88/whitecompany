@@ -11,6 +11,8 @@ use Whitecompany\Models\Bohurt;
 use Whitecompany\Validation\InputForms\UserProfile;
 use Whitecompany\Models\User;
 use Whitecompany\Validation\InputForms\UserRecordBohurt;
+use Whitecompany\Validation\InputForms\UserRecordTriathlon;
+use Whitecompany\Validation\InputForms\UserRecordSword;
 
 class UserController extends Controller{
 
@@ -78,5 +80,61 @@ class UserController extends Controller{
 
         return $response->withRedirect($this->router->pathFor('home'));
         
+    }
+
+    public function postRecordTriathlon($request,$response){
+
+        $validation = $this->validator->validate($request,UserRecordTriathlon::rules());
+
+        if ($validation->fails()){
+
+            return $response->withRedirect($this->router->pathFor('get.error',['param1' => 'triathlon']));
+        }
+
+        $user = User::find($request->getParam('figterId'));
+
+
+
+        $user->triathlon()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
+            'win' =>( $user->triathlon->win + $request->getParam('win')),
+            'loss' =>( $user->triathlon->loss + $request->getParam('loss')),
+            'points' =>( $user->triathlon->points + $request->getParam('win')),
+        ]);
+
+        $user->update([
+            'total_points' => ($user->total_points + $request->getParam('win'))
+        ]);
+
+
+        return $response->withRedirect($this->router->pathFor('home'));
+
+    }
+
+    public function postRecordSword($request,$response){
+
+        $validation = $this->validator->validate($request,UserRecordSword::rules());
+
+        if ($validation->fails()){
+
+            return $response->withRedirect($this->router->pathFor('get.error',['param1' => 'sword']));
+        }
+
+        $user = User::find($request->getParam('figterId'));
+
+
+
+        $user->sword()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
+            'win' =>( $user->sword->win + $request->getParam('win')),
+            'loss' =>( $user->sword->loss + $request->getParam('loss')),
+            'points' =>( $user->sword->points + $request->getParam('win')),
+        ]);
+
+        $user->update([
+            'total_points' => ($user->total_points + $request->getParam('win'))
+        ]);
+
+
+        return $response->withRedirect($this->router->pathFor('home'));
+
     }
 }

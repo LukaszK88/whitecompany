@@ -198,7 +198,7 @@
   background-color: #337ab7;
   background-image: -webkit-linear-gradient(top, #149bdf 0%, #0480be 100%);
   background-image: -o-linear-gradient(top, #149bdf 0%, #0480be 100%);
-  background-image: linear-gradient(to bottom, #149bdf 0%, #0480be 100%);
+  background-image: linear-gradient(to bottom, #ffffff -50%, #000000 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff149bdf', endColorstr='#ff0480be', GradientType=0);
   filter: none;
