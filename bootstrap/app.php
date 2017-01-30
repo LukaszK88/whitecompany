@@ -93,6 +93,10 @@ $container['UserController'] = function($container){
     return new \Whitecompany\Controllers\UserController($container);
 };
 
+$container['BohurtController'] = function($container){
+    return new \Whitecompany\Controllers\Categories\BohurtController($container);
+};
+
 $container['AuthController'] = function($container){
     return new \Whitecompany\Controllers\Auth\AuthController($container);
 };

@@ -1,0 +1,64 @@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="recordBohurt" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Update your details</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ path_for('post.record.bohurt') }}" method="post">
+                        <fieldset>
+                            <div class="form-group {{ errors.won ? 'has-error': '' }} ">
+                                <label for="won">Fights won</label><br>
+                                <input class="ex1" data-slider-id='ex1Slider' id="won" name="won" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="">
+
+                                {% if errors.won %}
+                                    <span class="help-block">
+                                    {{ errors.won | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+                            <div class="form-group {{ errors.down ? 'has-error': '' }} ">
+                                <label for="down">Fights down</label><br>
+                                <input class="ex1" data-slider-id='ex1Slider' id="down" name="down" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="">
+
+                                {% if errors.down %}
+                                    <span class="help-block">
+                                    {{ errors.down | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+                            <div class="form-group {{ errors.last ? 'has-error': '' }} ">
+                                <label for="last">Last man standinh</label><br>
+                                <input class="ex1" data-slider-id='ex1Slider' id="last" name="last" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="">
+
+                                {% if errors.last %}
+                                    <span class="help-block">
+                                    {{ errors.last | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+                            <div class="form-group {{ errors.suicide ? 'has-error': '' }} ">
+                                <label for="suicide">Suicides</label><br>
+                                <input class="ex1" data-slider-id='ex1Slider' id="suicide" name="suicide" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="">
+
+                                {% if errors.suicide %}
+                                    <span class="help-block">
+                                    {{ errors.suicide | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <input type="hidden" value="" name="figterId" id="fighterId">
+
+                            <input type="submit" value="Update" class="btn btn-lg btn-custom btn-block">
+                            {{ csrf.field | raw }}
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

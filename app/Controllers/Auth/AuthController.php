@@ -29,7 +29,7 @@ class AuthController extends Controller{
 
         if(!$auth){
             $this->flash->addMessage('error','Could not sign you in, wrong details');
-          return  $response->withRedirect($this->router->pathFor('home',['param1' => 'logInError']));
+          return  $response->withRedirect($this->router->pathFor('get.error',['param1' => 'logIn']));
         }
         if($this->auth->user()->temp_password){
             $this->flash->addMessage('success','You have logged in for the first time, change your temporary password');
@@ -46,7 +46,7 @@ class AuthController extends Controller{
      
         if($valiation->fails()){
 
-            return $response->withRedirect($this->router->pathFor('home',['param1' => 'registerError']));
+            return $response->withRedirect($this->router->pathFor('get.error',['param1' => 'register']));
 
         }
 

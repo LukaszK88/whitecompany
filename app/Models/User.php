@@ -9,6 +9,7 @@
 namespace Whitecompany\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Whitecompany\Models\Bohurt;
 
 class User extends Model{
 
@@ -22,6 +23,7 @@ class User extends Model{
         'password',
         'role',
         'weight',
+        'total_points',
     ];
 
     public function setTempPassword($password){
@@ -40,6 +42,11 @@ class User extends Model{
             'temp_password' => ''
         ]);
         
+    }
+
+    public function bohurt(){
+
+        return $this->hasOne(Bohurt::class);
     }
 
 }

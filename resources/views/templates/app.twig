@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="{{ base_url() }}/css/bootstrap.css">
     <link rel="stylesheet" href="{{ base_url() }}/css/logo-nav.css">
     <link rel="stylesheet" href="{{ base_url() }}/css/datepicker.css">
+    <link rel="stylesheet" href="{{ base_url() }}/css/bootstrap-slider.css">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="{{ base_url() }}/css/custom.css">
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -29,6 +32,9 @@
     {% include 'auth/signin.twig' %}
 
     {% include 'user/profile.twig' %}
+
+
+
 
 
         <!-- Page Content -->
@@ -57,6 +63,9 @@
     <script src="{{ base_url() }}/js/bootstrap.min.js"></script>
     <script src="{{ base_url() }}/js/bootstrap-datepicker.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+    <script src="{{ base_url() }}/js/bootstrap-slider.min.js"></script>
     <script>
         $('.datepicker').datepicker()
     </script>
@@ -70,27 +79,67 @@
     });
     {% endif %}
 </script>
-    {% if param1|first == 'profileError' %}
+    {% if param1|first == 'profile' %}
         <script>
             $(window).load(function(){
                 $('#updateProfile').modal('show');
             });
         </script>
     {% endif %}
-    {% if param1|first == 'registerError' %}
+    {% if param1|first == 'register' %}
         <script>
             $(window).load(function(){
                 $('#signUp').modal('show');
             });
         </script>
     {% endif %}
-    {% if param1|first == 'logInError' %}
+    {% if param1|first == 'logIn' %}
         <script>
             $(window).load(function(){
                 $('#signIn').modal('show');
             });
         </script>
     {% endif %}
+    {% if param1|first == 'bohurt' %}
+        <script>
+            $(window).load(function(){
+                $('#record').modal('show');
+            });
+        </script>
+    {% endif %}
+<script>
+    $('#recordBohurt').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var recipient = button.data('id'); // Extract info from data-* attributes
+        var path = "{{ path_for('post.record.bohurt') }}";
+        $.ajax({
+            method: "POST",
+            url: path,
+            data: { 'id': recipient }
+        });
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this);
+
+        modal.find('#fighterId').val(recipient)
+
+    })
+
+</script>
+
+    <script>$('.ex1').slider({
+            formatter: function(value) {
+                return 'Current value: ' + value;
+            }
+        });</script>
+<script>
+    $(document).ready(function() {
+    $('.myTable').DataTable();
+    } );
+</script>
+
+
+
+
 
 </body>
 </html>
