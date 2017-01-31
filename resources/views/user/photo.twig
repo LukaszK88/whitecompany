@@ -1,0 +1,27 @@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="photo" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Photo upload</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ path_for('photo',{userId : user.id , param : 'photo'}) }}" method="post" enctype="multipart/form-data">
+                        <fieldset>
+
+                            <div class="form-group">
+                                <label for="image">Image</label>
+                                <input type="file" name="image" class="form-control">
+                            </div>
+
+                            <input type="submit" value="Update" class="btn btn-lg btn-custom btn-block">
+                            {{ csrf.field | raw }}
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

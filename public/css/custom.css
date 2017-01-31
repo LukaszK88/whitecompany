@@ -7,3 +7,24 @@
 .datepicker {
     z-index:1051 !important;
 }
+
+.profile-photo{
+     max-height: 250px;
+
+ }
+
+.nav-photo{
+    max-height: 100px;
+
+}
+
+.coa-photo-table{
+    max-height: 50px;
+    max-width: 50px;
+}
+
+.coa-photo-profile{
+    max-height: 150px;
+    max-width: 150px;
+    width: 100%;
+}

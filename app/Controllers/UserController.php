@@ -17,8 +17,7 @@ use Whitecompany\Validation\InputForms\UserRecordSword;
 class UserController extends Controller{
 
 
-
-    public function getProfile($request,$response, $param1){
+    public function getModalErrors($request,$response, $param1){
 
         $users = User::where('name','!=','')->get();
 
@@ -48,93 +47,80 @@ class UserController extends Controller{
         ]);
 
         $this->flash->addMessage('success','Updated your details');
-        return $response->withRedirect($this->router->pathFor('home'));
+        return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
     }
     
-    public function postRecordBohurt($request,$response){
+    public function getUserProfile($request,$response,$userId){
 
-        $validation = $this->validator->validate($request,UserRecordBohurt::rules());
+        $user = User::find($userId)->first();
 
-        if ($validation->fails()){
-
-            return $response->withRedirect($this->router->pathFor('get.error',['param1' => 'bohurt']));
-        }
-
-        $user = User::find($request->getParam('figterId'));
-
-
-
-        $user->bohurt()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
-            'fights' =>( $user->bohurt->fights +($request->getParam('won')+$request->getParam('down')+$request->getParam('last')+$request->getParam('suicide'))),
-            'down' =>( $user->bohurt->down + $request->getParam('down')),
-            'last' =>( $user->bohurt->last + $request->getParam('last')),
-            'won' =>( $user->bohurt->won + $request->getParam('won')),
-            'suicide' =>( $user->bohurt->suicide + $request->getParam('suicide')),
-            'points' =>( $user->bohurt->points + ((($request->getParam('won')*2)+$request->getParam('last'))-($request->getParam('suicide')*3))),
+        return $this->view->render($response, 'user/profilePage.twig',[
+            'user' => $user,
         ]);
-
-        $user->update([
-            'total_points' => ($user->total_points + ((($request->getParam('won')*2)+$request->getParam('last'))-($request->getParam('suicide')*3)))
-        ]);
-
-
-        return $response->withRedirect($this->router->pathFor('home'));
-        
     }
+    
+    public function postPhotoUpload($request,$response,$userId){
 
-    public function postRecordTriathlon($request,$response){
+        $target_dir = "img/";
+        $target_file = $target_dir . basename($_FILES['image']["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        // Check if image file is a actual image or fake image
+        if(isset($_POST["submit"])) {
+            $check = getimagesize($_FILES['image']["tmp_name"]);
+            if($check !== false) {
+                //echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                $this->flash->addMessage('error','File is not an image');
 
-        $validation = $this->validator->validate($request,UserRecordTriathlon::rules());
-
-        if ($validation->fails()){
-
-            return $response->withRedirect($this->router->pathFor('get.error',['param1' => 'triathlon']));
+                $uploadOk = 0;
+            }
         }
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            $this->flash->addMessage('error','Sorry, file already exists');
 
-        $user = User::find($request->getParam('figterId'));
-
-
-
-        $user->triathlon()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
-            'win' =>( $user->triathlon->win + $request->getParam('win')),
-            'loss' =>( $user->triathlon->loss + $request->getParam('loss')),
-            'points' =>( $user->triathlon->points + $request->getParam('win')),
-        ]);
-
-        $user->update([
-            'total_points' => ($user->total_points + $request->getParam('win'))
-        ]);
-
-
-        return $response->withRedirect($this->router->pathFor('home'));
-
-    }
-
-    public function postRecordSword($request,$response){
-
-        $validation = $this->validator->validate($request,UserRecordSword::rules());
-
-        if ($validation->fails()){
-
-            return $response->withRedirect($this->router->pathFor('get.error',['param1' => 'sword']));
+            $uploadOk = 0;
         }
+        // Check file size
+        if ($_FILES['image']["size"] > 500000) {
+            $this->flash->addMessage('error','Sorry, your file is too large.');
 
-        $user = User::find($request->getParam('figterId'));
+            $uploadOk = 0;
+        }
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif" ) {
+            $this->flash->addMessage('error','Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
 
+            $uploadOk = 0;
+        }
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            //Message::setMessage("Sorry, your file was not uploaded.","error");
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES['image']["tmp_name"], $target_file)) {
+                if($userId['param'] == 'photo') {
+                    User::where('id', $userId['userId'])->update([
+                        'image' => '/img/' . $_FILES['image']["name"]
+                    ]);
+                    $this->flash->addMessage('success', 'The file ' . basename($_FILES['image']["name"]) . ' has been uploaded.');
+                    return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
+                }elseif($userId['param'] == 'coa'){
+                    User::where('id', $userId['userId'])->update([
+                        'coa' => '/img/' . $_FILES['image']["name"]
+                    ]);
+                    $this->flash->addMessage('success', 'The file ' . basename($_FILES['image']["name"]) . ' has been uploaded.');
+                    return $response->withRedirect($this->router->pathFor('home'));
+                }
+                
+            } else{
+                $this->flash->addMessage('error','Sorry, there was an error uploading your file.');
 
-
-        $user->sword()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
-            'win' =>( $user->sword->win + $request->getParam('win')),
-            'loss' =>( $user->sword->loss + $request->getParam('loss')),
-            'points' =>( $user->sword->points + $request->getParam('win')),
-        ]);
-
-        $user->update([
-            'total_points' => ($user->total_points + $request->getParam('win'))
-        ]);
-
-
-        return $response->withRedirect($this->router->pathFor('home'));
-
+            }
+        }
+       
     }
 }

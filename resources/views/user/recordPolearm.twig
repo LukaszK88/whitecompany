@@ -1,0 +1,44 @@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="recordPolearm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Update your details</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ path_for('post.record.polearm') }}" method="post">
+                        <fieldset>
+                            <div class="form-group {{ errors.win ? 'has-error': '' }} ">
+                                <label for="win">Fights won</label><br>
+                                <input class="ex1" data-slider-id='ex1Slider' id="win" name="win" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="">
+
+                                {% if errors.win %}
+                                    <span class="help-block">
+                                    {{ errors.win | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+                            <div class="form-group {{ errors.loss ? 'has-error': '' }} ">
+                                <label for="down">Fights lost</label><br>
+                                <input class="ex1" data-slider-id='ex1Slider' id="loss" name="loss" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="">
+
+                                {% if errors.loss %}
+                                    <span class="help-block">
+                                    {{ errors.loss | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <input type="hidden" value="" name="figterId" id="fighterId">
+
+                            <input type="submit" value="Update" class="btn btn-lg btn-custom btn-block">
+                            {{ csrf.field | raw }}
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

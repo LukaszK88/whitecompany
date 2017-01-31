@@ -1,3 +1,4 @@
+{% include 'user/coa.twig' %}
 <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover myTable">
             <thead>
@@ -5,7 +6,7 @@
                 <th width="5%">Nr</th>
                 <th>Fighter</th>
                 <th>Rank</th>
-                <th>CoA</th>
+                <th width="5%">CoA</th>
                 <th width="5%">Total Points</th>
 
 
@@ -17,9 +18,17 @@
 
                 {% set counter = ( counter | default(0) ) + 1 %}
                 <td>{{ counter }}</td>
-                <td>{{ user.name }}</td>
+                <td><a href="{{ path_for('get.profile.page',{ userId : user.id}) }}">{{ user.name }}</a></td>
                 <td width="9%">{{ user.rank }}</td>
-                <th></th>
+                <th>
+                    {%  if not user.coa and user.id == auth.user.id %}
+                    <a href="#" class="btn btn-sm btn-custom" data-toggle="modal" data-target="#coa">Upload Coa</a>
+                    {%  elseif not user.coa and user.id != auth.user.id %}
+                        <img src="{{ base_url() }}/img/kaka.png" class="img-responsive coa-photo-table">
+                    {% else %}
+                    <a href="#" data-toggle="modal" data-target="#coa">  <img src="{{ base_url() }}{{ user.coa }}" class="img-responsive coa-photo-table"></a>
+                    {% endif %}
+                </th>
 
                 <td width="7%">{{ user.total_points }}</td>
 

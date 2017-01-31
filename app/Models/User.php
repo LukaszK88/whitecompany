@@ -23,6 +23,7 @@ class User extends Model{
         'password',
         'role',
         'weight',
+        'image',
         'total_points',
     ];
 
@@ -57,6 +58,21 @@ class User extends Model{
     public function sword(){
 
         return $this->hasOne(Sword::class);
+    }
+
+    public function longsword(){
+
+        return $this->hasOne(Longsword::class);
+    }
+
+    public function polearm(){
+
+        return $this->hasOne(Polearm::class);
+    }
+
+    public function profight(){
+
+        return $this->hasOne(Profight::class);
     }
 
 }

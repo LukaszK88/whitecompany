@@ -97,6 +97,26 @@ $container['BohurtController'] = function($container){
     return new \Whitecompany\Controllers\Categories\BohurtController($container);
 };
 
+$container['TriathlonController'] = function($container){
+    return new \Whitecompany\Controllers\Categories\TriathlonController($container);
+};
+
+$container['SwordController'] = function($container){
+    return new \Whitecompany\Controllers\Categories\SwordController($container);
+};
+
+$container['LongswordController'] = function($container){
+    return new \Whitecompany\Controllers\Categories\LongswordController($container);
+};
+
+$container['PolearmController'] = function($container){
+    return new \Whitecompany\Controllers\Categories\PolearmController($container);
+};
+
+$container['ProfightController'] = function($container){
+    return new \Whitecompany\Controllers\Categories\ProfightController($container);
+};
+
 $container['AuthController'] = function($container){
     return new \Whitecompany\Controllers\Auth\AuthController($container);
 };

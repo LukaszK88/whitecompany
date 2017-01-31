@@ -66,6 +66,7 @@
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
     <script src="{{ base_url() }}/js/bootstrap-slider.min.js"></script>
+
     <script>
         $('.datepicker').datepicker()
     </script>
@@ -148,6 +149,60 @@
             var button = $(event.relatedTarget); // Button that triggered the modal
             var recipient = button.data('id'); // Extract info from data-* attributes
             var path = "{{ path_for('post.record.sword') }}";
+            $.ajax({
+                method: "POST",
+                url: path,
+                data: { 'id': recipient }
+            });
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this);
+
+            modal.find('#fighterId').val(recipient)
+
+        })
+
+    </script>
+    <script>
+        $('#recordLongsword').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var recipient = button.data('id'); // Extract info from data-* attributes
+            var path = "{{ path_for('post.record.longsword') }}";
+            $.ajax({
+                method: "POST",
+                url: path,
+                data: { 'id': recipient }
+            });
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this);
+
+            modal.find('#fighterId').val(recipient)
+
+        })
+
+    </script>
+    <script>
+        $('#recordPolearm').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var recipient = button.data('id'); // Extract info from data-* attributes
+            var path = "{{ path_for('post.record.polearm') }}";
+            $.ajax({
+                method: "POST",
+                url: path,
+                data: { 'id': recipient }
+            });
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this);
+
+            modal.find('#fighterId').val(recipient)
+
+        })
+
+    </script>
+    <script>
+        $('#recordProfight').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var recipient = button.data('id'); // Extract info from data-* attributes
+            var path = "{{ path_for('post.record.profight') }}";
             $.ajax({
                 method: "POST",
                 url: path,

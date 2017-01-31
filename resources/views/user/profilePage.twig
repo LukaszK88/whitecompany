@@ -1,0 +1,58 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+  {% include 'user/photo.twig' %}
+    {% include 'user/coa.twig' %}
+
+<div class="col-md-3">
+    {%  if not user.image and user.id == auth.user.id %}
+    <a href="#" class="btn btn-custom" data-toggle="modal" data-target="#photo" >Upload photo</a>
+        {%  elseif not user.image and user.id != auth.user.id %}
+        <img src="{{ base_url() }}/img/profile_placeholder.png" class="img-responsive profile-photo center-block">
+            {% else %}
+    <a href="#" data-toggle="modal" data-target="#photo" ><img src="{{ base_url() }}{{ user.image }}" class="img-responsive profile-photo center-block"></a>
+                {% endif %}
+</div>
+    <div class="col-md-6">
+        <h2 class="text-center ">Mercenary profile</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="text-center">Personal </h3>
+                Age:{{ user.age }}<br>
+                Weight:{{ user.weight }} kg<br>
+                Total points:{{ user.total_points }}<br>
+                {% if user.coa %}
+                    <h4 class="text-center">Coat of arms</h4>
+                <a href="#" data-toggle="modal" data-target="#coa">  <img src="{{ base_url() }}{{ user.coa }}" class="coa-photo-profile center-block"></a>
+                {% endif %}
+                {% if user.quote %}
+                    <h4 class="text-center">Favourite quote</h4>
+                    {{ user.quote }}
+                {% endif %}
+
+            </div>
+            <div class="col-md-6">
+                <h3 class="text-center">Fighting Exp </h3>
+                Total fights:{{ user.bohurt.fights +  user.sword.win + user.sword.loss + user.longsword.win + user.longsword.loss + user.polearm.win + user.polearm.loss + user.triathlon.win + user.triathlon.loss + user.profight.win + user.profight.loss + user.profight.ko}}<br>
+                Bohurt fights:{{ user.bohurt.fights }}<br>
+                Sword and shield fights:{{ user.sword.win + user.sword.loss }}<br>
+                Longsword fights:{{ user.longsword.win + user.longsword.loss  }}<br>
+                Polearm fights:{{ user.polearm.win + user.polearm.loss  }}<br>
+                Triathlon fights:{{ user.triathlon.win + user.triathlon.loss  }}<br>
+                Profights:{{ user.profight.win + user.profight.loss + user.profight.ko }}<br>
+            </div>
+        </div>
+       {% if user.about %}
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">About </h3>
+                    {{ user.about }}
+                </div>
+        </div>
+       {% endif %}
+    </div>
+    <div class="col-md-3">
+        Achievements
+    </div>
+{% endblock %}
