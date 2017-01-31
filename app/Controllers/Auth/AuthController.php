@@ -7,6 +7,7 @@
  */
 namespace Whitecompany\Controllers\Auth;
 
+use Whitecompany\Lib\Email;
 use Whitecompany\Models\User;
 use Whitecompany\Controllers\Controller;
 use Whitecompany\Validation\InputForms\RegisterUser;
@@ -57,6 +58,8 @@ class AuthController extends Controller{
 
         ]);
 
+        Email::sendEmail($request->getParam('email'), 'Your temporary password for White company ranking' ,
+            'Your password is '.md5($request->getParam('email')));
         $this->flash->addMessage('success','You have registered, we have sent you temporary password');
 
         return $response->withRedirect($this->router->pathFor('home'));

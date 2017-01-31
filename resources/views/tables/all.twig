@@ -25,6 +25,8 @@
                     <a href="#" class="btn btn-sm btn-custom" data-toggle="modal" data-target="#coa">Upload Coa</a>
                     {%  elseif not user.coa and user.id != auth.user.id %}
                         <img src="{{ base_url() }}/img/kaka.png" class="img-responsive coa-photo-table">
+                    {% elseif user.image and user.id != auth.user.id %}
+                        <img src="{{ base_url() }}{{ user.coa }}" class="img-responsive coa-photo-table">
                     {% else %}
                     <a href="#" data-toggle="modal" data-target="#coa">  <img src="{{ base_url() }}{{ user.coa }}" class="img-responsive coa-photo-table"></a>
                     {% endif %}

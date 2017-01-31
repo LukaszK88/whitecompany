@@ -22,8 +22,8 @@
             <tr>
                 {% set counter = ( counter | default(0) ) + 1 %}
                 <td>{{ counter }}</td>
-                
-                <td>{{ user.name }}</td>
+
+                <td><a href="{{ path_for('get.profile.page',{ userId : user.id}) }}">{{ user.name }}</a></td>
 
                 <td>{{ user.profight.win + user.profight.loss }}</td>
                 <td>{{ user.profight.win }}</td>

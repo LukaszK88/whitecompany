@@ -6,7 +6,8 @@
         "vlucas/phpdotenv": "^2.4",
         "respect/validation": "^1.1",
         "slim/csrf": "^0.7.0",
-        "slim/flash": "^0.2.0"
+        "slim/flash": "^0.2.0",
+        "phpmailer/phpmailer": "^5.2"
     },
     "autoload": {
         "psr-4": {

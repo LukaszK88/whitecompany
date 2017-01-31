@@ -15,11 +15,11 @@ class UserProfile{
 
         return[
             'name' => v::notEmpty()->alnum(),
-            'rank' => v::notEmpty()->alpha(),
+            'rank' => v::notEmpty()->alnum(' '),
             'age' => v::notEmpty()->numeric(),
             'weight' => v::notEmpty()->numeric(),
-            'quote' => v::alnum(),
-            'about' => v::alnum(),
+            'quote' => v::optional(v::alnum(' " ')),
+            'about' => v::optional(v::alnum()),
 
         ];
     }

@@ -18,7 +18,18 @@
                                 {% endif %}
                             </div>
                             <div class="form-group {{ errors.rank ? 'has-error': '' }} ">
-                                <input class="form-control" placeholder="Rank" name="rank" type="text" value="{{ errors ? old.rank : auth.user.rank }}">
+                                <select class="selectpicker show-tick" name="rank" title="Select rank">
+                                    {% if errors %}
+                                    <option selected >{{ old.rank }}</option>
+                                    {% elseif auth.user.rank %}
+                                    <option selected >{{ auth.user.rank }}</option>
+                                    {% endif %}
+                                    <option >Rank 1</option>
+                                    <option >Rank 2</option>
+                                    <option >Rank 3</option>
+                                    <option >Rank 4</option>
+                                    <option >Rank 5</option>
+                                </select>
                                 {% if errors.rank %}
                                     <span class="help-block">
                                     {{ errors.rank | first }}
