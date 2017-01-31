@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="{{ base_url() }}/css/logo-nav.css">
     <link rel="stylesheet" href="{{ base_url() }}/css/datepicker.css">
     <link rel="stylesheet" href="{{ base_url() }}/css/bootstrap-slider.css">
-
+    <link rel="stylesheet" href="{{ base_url() }}/css/selectize.bootstrap3.css">
+    <link rel="stylesheet" href="{{ base_url() }}/css/font-awesome.min.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
 
@@ -66,9 +67,25 @@
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
     <script src="{{ base_url() }}/js/bootstrap-slider.min.js"></script>
+    <script src="{{ base_url() }}/js/selectize.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
     <script>
-        $('.datepicker').datepicker()
+
+        $(document).ready(function(){
+            var date_input=$('input[name="date"]'); //our date input has the name "date"
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            var options={
+                format: "yyyy/mm/dd",
+                startView: "year",
+                minViewMode: "months"
+            };
+            date_input.datepicker(options);
+        })
+
     </script>
 
 <script>
@@ -105,6 +122,14 @@
         <script>
             $(window).load(function(){
                 $('#record').modal('show');
+            });
+        </script>
+    {% endif %}
+
+    {% if userId.error  == 'achievement' %}
+        <script>
+            $(window).load(function(){
+                $('#addAchievement').modal('show');
             });
         </script>
     {% endif %}
@@ -228,7 +253,9 @@
     $('.myTable').DataTable();
     } );
 </script>
-
+<script>
+    $('#select-country').selectize();
+</script>
 
 
 

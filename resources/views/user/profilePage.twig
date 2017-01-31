@@ -3,7 +3,10 @@
 {% block content %}
 
   {% include 'user/photo.twig' %}
-    {% include 'user/coa.twig' %}
+
+  {% include 'user/coa.twig' %}
+
+  {% include 'user/addAchievement.twig' %}
 
 <div class="col-md-3">
     {%  if not user.image and user.id == auth.user.id %}
@@ -53,6 +56,25 @@
        {% endif %}
     </div>
     <div class="col-md-3">
-        Achievements
+        <h2 class="text-center">Achievements</h2>
+
+        <hr>
+        {% if user.id == auth.user.id %}
+        <a href="#" class="btn btn-custom btn-sm center-block" data-toggle="modal" data-target="#addAchievement">Add achievement</a>
+            {% endif %}
+        <ul class="fa-ul ">
+        {% for achievement in user.achievement %}
+
+            <li> <i class="{{ achievement.place }}"></i>{{ achievement.date | date("m/Y")}} {{ achievement.competition_name }} {{ achievement.location }} {{ achievement.category }}
+            {% if user.id == auth.user.id %}
+                <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#updateAchievement{{ achievement.id }}"  ><span class="glyphicon glyphicon-pencil"></span></button>
+                <a href="{{ path_for('delete.achievement',{achievementId : achievement.id}) }}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+                {% include 'user/updateAchievement.twig' %}
+            {% endif %}
+            </li>
+
+
+            {% endfor %}
+        </ul>
     </div>
 {% endblock %}

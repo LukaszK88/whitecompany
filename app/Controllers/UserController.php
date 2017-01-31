@@ -18,6 +18,7 @@ class UserController extends Controller{
 
 
     public function getModalErrors($request,$response, $param1){
+        
 
         $users = User::where('name','!=','')->get();
 
@@ -56,6 +57,7 @@ class UserController extends Controller{
 
         return $this->view->render($response, 'user/profilePage.twig',[
             'user' => $user,
+           'userId' => $userId
         ]);
     }
     

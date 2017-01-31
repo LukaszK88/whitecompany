@@ -13,7 +13,7 @@ $app->get('/', 'HomeController:index')->setName('home');
 
 $app->get('/error[/{param1}]','UserController:getModalErrors')->setName('get.error');
 
-$app->get('/profile[/{userId}]','UserController:getUserProfile')->setName('get.profile.page');
+$app->get('/profile[/{userId}[/{error}]]','UserController:getUserProfile')->setName('get.profile.page');
 
 $app->group('',function(){
 
@@ -45,6 +45,10 @@ $app->group('',function(){
 
 
     $this->post('/photo/{userId}/{param}', 'UserController:postPhotoUpload')->setName('photo');
+
+    $this->post('/add[/{achievementId}]', 'AchievementController:postAddAchievement')->setName('post.add.achievement');
+
+    $this->get('/delete[/{achievementId}]', 'AchievementController:getDeleteAchievement')->setName('delete.achievement');
 
 
     

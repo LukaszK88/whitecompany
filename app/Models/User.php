@@ -74,5 +74,10 @@ class User extends Model{
 
         return $this->hasOne(Profight::class);
     }
+    
+    public function achievement(){
+
+        return $this->hasMany(Achievements::class);
+    }
 
 }

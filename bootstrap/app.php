@@ -117,6 +117,10 @@ $container['ProfightController'] = function($container){
     return new \Whitecompany\Controllers\Categories\ProfightController($container);
 };
 
+$container['AchievementController'] = function($container){
+    return new \Whitecompany\Controllers\AchievementController($container);
+};
+
 $container['AuthController'] = function($container){
     return new \Whitecompany\Controllers\Auth\AuthController($container);
 };
