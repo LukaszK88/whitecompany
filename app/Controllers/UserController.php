@@ -75,27 +75,27 @@ class UserController extends Controller{
                 $uploadOk = 1;
             } else {
                 $this->flash->addMessage('error','File is not an image');
-
+                return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
                 $uploadOk = 0;
             }
         }
         // Check if file already exists
         if (file_exists($target_file)) {
             $this->flash->addMessage('error','Sorry, file already exists');
-
+            return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
             $uploadOk = 0;
         }
         // Check file size
         if ($_FILES['image']["size"] > 500000) {
             $this->flash->addMessage('error','Sorry, your file is too large.');
-
+            return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
             $uploadOk = 0;
         }
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif" ) {
             $this->flash->addMessage('error','Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
-
+            return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
             $uploadOk = 0;
         }
         // Check if $uploadOk is set to 0 by an error
@@ -120,7 +120,7 @@ class UserController extends Controller{
                 
             } else{
                 $this->flash->addMessage('error','Sorry, there was an error uploading your file.');
-
+                return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
             }
         }
        
