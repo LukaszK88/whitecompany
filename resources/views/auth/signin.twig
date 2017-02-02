@@ -13,6 +13,9 @@
                                 <input class="form-control" placeholder="E-mail" name="email" type="text" value="{{ old.email }}">
                                 {% if errors.email %}
                                     <span class="help-block">
+                                        {% if errors.email %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.email | first }}
                                 </span>
                                 {% endif %}
@@ -21,6 +24,9 @@
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 {% if errors.password %}
                                     <span class="help-block">
+                                        {% if errors.password %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.password | first }}
                                 </span>
                                 {% endif %}
@@ -36,7 +42,7 @@
                                 </label>
                             </div>
 
-                            <button type="submit" class="btn btn-lg btn-custom btn-block">Sign in</button><button class="btn btn-lg btn-custom btn-block pull-right" id="divMsg" style="display:none;"><img src="{{ base_url() }}/img/1351237.gif" height="25px" > Please wait... </button>
+                            <button type="submit" class="btn btn-lg btn-custom btn-block">Sign in</button><button class="btn btn-lg btn-custom btn-block pull-right divMsg" style="display:none;"><img src="{{ base_url() }}/img/1351237.gif" height="25px" > Please wait... </button>
                             {{ csrf.field | raw }}
                         </fieldset>
                     </form>

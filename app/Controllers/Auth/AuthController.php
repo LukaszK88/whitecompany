@@ -32,12 +32,13 @@ class AuthController extends Controller{
             $this->flash->addMessage('error','Could not sign you in, wrong details');
           return  $response->withRedirect($this->router->pathFor('get.error',['param1' => 'logIn']));
         }
-        if($this->auth->user()->temp_password){
-            $this->flash->addMessage('success','You have logged in for the first time, change your temporary password');
-            return  $response->withRedirect($this->router->pathFor('auth.password.change'));
+
+        if($this->auth->user()->temp_password) {
+            $this->flash->addMessage('success', 'You have logged in for the first time, change your temporary password');
+            return $response->withRedirect($this->router->pathFor('auth.password.change'));
         }
 
-       return $response->withRedirect($this->router->pathFor('home'));
+            return $response->withRedirect($this->router->pathFor('home'));
 
     }
     

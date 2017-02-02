@@ -10,16 +10,22 @@
                     <form action="{{ path_for('post.add.achievement')}}" method="post">
                         <fieldset>
                             <div class="form-group {{ errors.competition_name ? 'has-error': '' }} ">
-                                <input class="form-control" placeholder="Competition name" name="competition_name" type="text" value="">
+                                <input class="form-control" placeholder="Competition name" name="competition_name" type="text" value="{{ errors ? old.competition_name : '' }}">
                                 {% if errors.competition_name %}
                                     <span class="help-block">
-                                    {{ errors.competition_name | first }}
+                                        {% if errors.competition_name %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
+                                    {{ errors.competition_name | first | replace('_' , ' ') }}
                                 </span>
                                 {% endif %}
                             </div>
 
                             <div class="form-group {{ errors.location ? 'has-error': '' }} ">
                                 <select  id="select-country" name="location">
+                                    {% if errors %}
+                                    <option selected >{{ old.location }}</option>
+                                    {% endif %}
                                     <option value="">Country...</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
@@ -271,6 +277,9 @@
                                 </select>
                                 {% if errors.location %}
                                     <span class="help-block">
+                                        {% if errors.location %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.location | first }}
                                 </span>
                                 {% endif %}
@@ -279,6 +288,9 @@
                             <div class="form-group {{ errors.category ? 'has-error': '' }} ">
 
                                 <select class="selectpicker show-tick" name="category" title="Category">
+                                    {% if errors %}
+                                        <option selected >{{ old.category }}</option>
+                                    {% endif %}
                                     <option >5v5</option>
                                     <option >10v10</option>
                                     <option >16v16</option>
@@ -293,6 +305,9 @@
 
                                 {% if errors.category %}
                                     <span class="help-block">
+                                        {% if errors.category %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.category | first }}
                                 </span>
                                 {% endif %}
@@ -309,6 +324,9 @@
 
                                 {% if errors.place %}
                                     <span class="help-block">
+                                        {% if errors.place %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.place | first }}
                                 </span>
                                 {% endif %}
@@ -316,10 +334,13 @@
 
                             <div class="form-group {{ errors.date ? 'has-error': '' }} ">
                                 <div class="form-group"> <!-- Date input -->
-                                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" value=""/>
+                                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" value="{{ errors ? old.date : '' }}"/>
                                 </div>
                                 {% if errors.date %}
                                     <span class="help-block">
+                                        {% if errors.date %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.date | first }}
                                 </span>
                                 {% endif %}
@@ -330,7 +351,7 @@
 
 
 
-                            <button type="submit" class="btn btn-lg btn-custom btn-block">Add</button><button class="btn btn-lg btn-custom btn-block pull-right" id="divMsg" style="display:none;"><img src="{{ base_url() }}/img/1351237.gif" height="25px" > Please wait... </button>
+                            <button type="submit" class="btn btn-lg btn-custom btn-block">Add</button><button class="btn btn-lg btn-custom btn-block pull-right divMsg" style="display:none;"><img src="{{ base_url() }}/img/1351237.gif" height="25px" > Please wait... </button>
                             {{ csrf.field | raw }}
                         </fieldset>
                     </form>

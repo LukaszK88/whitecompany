@@ -15,7 +15,10 @@
                                 <input class="form-control" placeholder="Current password" name="password_old" type="password" value="">
                                 {% if errors.password_old %}
                                     <span class="help-block">
-                                    {{ errors.password_old | first }}
+                                        {% if errors.password_old %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
+                                    {{ errors.password_old | first | replace( '_' , ' ') }}
                                 </span>
                                 {% endif %}
                             </div>
@@ -24,6 +27,9 @@
                                 <input class="form-control" placeholder="New password" name="password" type="password" value="">
                                 {% if errors.password %}
                                     <span class="help-block">
+                                        {% if errors.password %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.password | first }}
                                 </span>
                                 {% endif %}
@@ -32,12 +38,15 @@
                                 <input class="form-control" placeholder="New password again" name="password_again" type="password" value="">
                                 {% if errors.password_again %}
                                     <span class="help-block">
-                                    {{ errors.password_again | first }}
+                                        {% if errors.password_again %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
+                                    {{ errors.password_again | first | replace( '_' , ' ')}}
                                 </span>
                                 {% endif %}
                             </div>
 
-                            <button type="submit" value="Update" class="btn btn-lg btn-custom btn-block">Update</button><button class="btn btn-lg btn-custom btn-block pull-right" id="divMsg" style="display:none;"><img src="{{ base_url() }}/img/1351237.gif" height="25px" > Please wait... </button>
+                            <button type="submit" value="Update" class="btn btn-lg btn-custom btn-block">Update</button><button class="btn btn-lg btn-custom btn-block pull-right divMsg" style="display:none;"><img src="{{ base_url() }}/img/1351237.gif" height="25px" > Please wait... </button>
                             {{ csrf.field | raw }}
                         </fieldset>
                     </form>

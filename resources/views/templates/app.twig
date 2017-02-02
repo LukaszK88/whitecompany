@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>White company</title>
+    <script src="{{ base_url() }}/js/jquery.js"></script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ base_url() }}/css/bootstrap.css">
@@ -25,6 +26,7 @@
 
 </head>
 <body>
+<div class="se-pre-con"></div>
 
     {% include 'templates/partials/navigation.twig' %}
 
@@ -59,7 +61,7 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
-    <script src="{{ base_url() }}/js/jquery.js"></script>
+
 <!-- Latest compiled and minified JavaScript -->
     <script src="{{ base_url() }}/js/bootstrap.min.js"></script>
     <script src="{{ base_url() }}/js/bootstrap-datepicker.js"></script>
@@ -262,15 +264,17 @@
     $(function() {
         $("form").submit(function() {
             $('button[type="submit"]').hide();
-            $('#divMsg').show();
+            $('.divMsg').show();
         });
     });
 
 
 </script>
 
-
-
-
+<script>
+    $(document).ready(function() {
+        $('.profile-photo').addClass('profile-photo-intro');
+    } );
+</script>
 </body>
 </html>

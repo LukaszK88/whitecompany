@@ -33,7 +33,7 @@ class Auth{
             return false;
         }
 
-        if(password_verify($password,$user->password) or ($user->temp_password == md5($email))){
+        if((password_verify($password,$user->password)) or (($user->temp_password == $password) and !empty($user->temp_password))){
             
             $_SESSION['user'] = $user->id;
 

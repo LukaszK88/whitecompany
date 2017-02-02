@@ -10,9 +10,13 @@
                     <form id="form" action="{{ path_for('post.profile') }}" method="post">
                         <fieldset>
                             <div class="form-group {{ errors.name ? 'has-error': '' }} ">
+
                                 <input class="form-control" placeholder="Name" name="name" type="text" value="{{ errors ? old.name : auth.user.name }}">
                                 {% if errors.name %}
                                     <span class="help-block">
+                                        {% if errors.name %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.name | first }}
                                 </span>
                                 {% endif %}
@@ -32,6 +36,9 @@
                                 </select>
                                 {% if errors.rank %}
                                     <span class="help-block">
+                                        {% if errors.rank %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.rank | first }}
                                 </span>
                                 {% endif %}
@@ -43,6 +50,9 @@
 
                                 {% if errors.quote %}
                                     <span class="help-block">
+                                        {% if errors.quote %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.quote | first }}
                                 </span>
                                 {% endif %}
@@ -52,6 +62,9 @@
                                  <textarea class="form-control" placeholder="About you" name="about">{{ errors ? old.about : auth.user.about}}</textarea>
                                 {% if errors.about %}
                                     <span class="help-block">
+                                        {% if errors.about %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.about | first }}
                                 </span>
                                 {% endif %}
@@ -69,6 +82,9 @@
 
                                 {% if errors.weight %}
                                     <span class="help-block">
+                                        {% if errors.weight %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.weight | first }}
                                 </span>
                                 {% endif %}
@@ -87,6 +103,9 @@
 
                                 {% if errors.age %}
                                     <span class="help-block">
+                                        {% if errors.age %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
                                     {{ errors.age | first }}
                                 </span>
                                 {% endif %}
@@ -94,7 +113,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" value="Update" class="btn btn-lg btn-custom btn-block">Update</button><button class="btn btn-lg btn-custom btn-block pull-right" id="divMsg" style="display:none;"><img src="{{ base_url() }}/img/1351237.gif" height="25px" > Please wait... </button>
+                            <button type="submit" value="Update" class="btn btn-lg btn-custom btn-block">Update</button><button class="btn btn-lg btn-custom btn-block pull-right divMsg" style="display:none;"><img src="{{ base_url() }}/img/1351237.gif" height="25px" > Please wait... </button>
                             {{ csrf.field | raw }}
                         </fieldset>
                     </form>

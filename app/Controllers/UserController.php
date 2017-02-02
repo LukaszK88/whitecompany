@@ -22,6 +22,8 @@ class UserController extends Controller{
 
         $users = User::where('name','!=','')->get();
 
+
+
         return $this->view->render($response, 'home.twig',[
             'users' => $users,
             'param1' => $param1,
@@ -55,9 +57,19 @@ class UserController extends Controller{
 
         $user = User::find($userId)->first();
 
+        $gold = $user->achievement()->where('place','fa fa-trophy fa-trophy-gold')->count();
+
+        $silver = $user->achievement()->where('place','fa fa-trophy fa-trophy-silver')->count();
+
+        $bronze = $user->achievement()->where('place','fa fa-trophy fa-trophy-bronze')->count();
+
+
         return $this->view->render($response, 'user/profilePage.twig',[
             'user' => $user,
-           'userId' => $userId
+           'userId' => $userId,
+            'gold' => $gold,
+            'silver' => $silver,
+            'bronze' => $bronze,
         ]);
     }
     
@@ -74,28 +86,55 @@ class UserController extends Controller{
                 //echo "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
             } else {
-                $this->flash->addMessage('error','File is not an image');
-                return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
+
+                    $this->flash->addMessage('error', 'File is not an image');
+                if($userId['param'] == 'photo') {
+
+                    return $response->withRedirect($this->router->pathFor('get.profile.page', ['userId' => $this->auth->user()->id, 'error' => 'photo']));
+                }elseif ($userId['param'] == 'coa'){
+
+                    return $response->withRedirect($this->router->pathFor('get.error', ['param1' => 'coa']));
+                }
                 $uploadOk = 0;
             }
         }
         // Check if file already exists
         if (file_exists($target_file)) {
-            $this->flash->addMessage('error','Sorry, file already exists');
-            return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
+
+            $this->flash->addMessage('error', 'Sorry, file already exists');
+
+            if($userId['param'] == 'photo') {
+
+                return $response->withRedirect($this->router->pathFor('get.profile.page', ['userId' => $this->auth->user()->id, 'error' => 'photo']));
+            }elseif ($userId['param'] == 'coa'){
+
+                return $response->withRedirect($this->router->pathFor('get.error', ['param1' => 'coa']));
+            }
             $uploadOk = 0;
         }
         // Check file size
         if ($_FILES['image']["size"] > 500000) {
             $this->flash->addMessage('error','Sorry, your file is too large.');
-            return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
+            if($userId['param'] == 'photo') {
+
+                return $response->withRedirect($this->router->pathFor('get.profile.page', ['userId' => $this->auth->user()->id, 'error' => 'photo']));
+            }elseif ($userId['param'] == 'coa'){
+
+                return $response->withRedirect($this->router->pathFor('get.error', ['param1' => 'coa']));
+            }
             $uploadOk = 0;
         }
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif" ) {
             $this->flash->addMessage('error','Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
-            return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
+            if($userId['param'] == 'photo') {
+
+                return $response->withRedirect($this->router->pathFor('get.profile.page', ['userId' => $this->auth->user()->id, 'error' => 'photo']));
+            }elseif ($userId['param'] == 'coa'){
+
+                return $response->withRedirect($this->router->pathFor('get.error', ['param1' => 'coa']));
+            }
             $uploadOk = 0;
         }
         // Check if $uploadOk is set to 0 by an error
@@ -120,7 +159,13 @@ class UserController extends Controller{
                 
             } else{
                 $this->flash->addMessage('error','Sorry, there was an error uploading your file.');
-                return $response->withRedirect($this->router->pathFor('get.profile.page',['userId' => $this->auth->user()->id]));
+                if($userId['param'] == 'photo') {
+
+                    return $response->withRedirect($this->router->pathFor('get.profile.page', ['userId' => $this->auth->user()->id, 'error' => 'photo']));
+                }elseif ($userId['param'] == 'coa'){
+
+                    return $response->withRedirect($this->router->pathFor('get.error', ['param1' => 'coa']));
+                }
             }
         }
        

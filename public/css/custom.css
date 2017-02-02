@@ -1,3 +1,24 @@
+
+body{
+    background-image: url("../img/Cool-Light-Grey-background-fantastic-imago-creative-studio-video-production.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+hr{
+    border-color: black;
+}
+.well{
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #cccccc;
+}
 .btn-custom {
     color: #fff;
     background-color: #000000;
@@ -10,11 +31,21 @@
 
 .profile-photo{
      max-height: 250px;
-
+    opacity: 0;
+    transition: opacity  1.5s ease-in-out;
  }
+
+.profile-photo-intro{
+    opacity: 1;
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .nav-photo{
     max-height: 100px;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
 
 }
 .nav-photo{
@@ -42,7 +73,7 @@
 }
 
 .fa-trophy-silver{
-    color: silver;
+    color: #929292;
 }
 
 .fa-trophy-bronze{
@@ -53,4 +84,72 @@
     font-size: medium;
     margin-top: 5px;
 
+}
+
+table{
+    background-color: transparent !important;
+
+}
+
+
+.panel-default{
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.text-center{
+    color: black;
+}
+
+.achievement{
+    border-bottom: 1px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: -15%
+
+
+}
+
+#tooltip
+{
+    text-align: center;
+    color: #fff;
+    background: #111;
+    position: absolute;
+    z-index: 1051;
+    padding: 15px;
+}
+
+#tooltip:after /* triangle decoration */
+{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #111;
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    margin-left: -10px;
+}
+
+#tooltip.top:after
+{
+    border-top-color: transparent;
+    border-bottom: 10px solid #111;
+    top: -20px;
+    bottom: auto;
+}
+
+#tooltip.left:after
+{
+    left: 10px;
+    margin: 0;
+}
+
+#tooltip.right:after
+{
+    right: 10px;
+    left: auto;
+    margin: 0;
 }

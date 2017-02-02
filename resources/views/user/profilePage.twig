@@ -52,6 +52,31 @@
                 Polearm fights:{{ user.polearm.win + user.polearm.loss  }}<br>
                 Triathlon fights:{{ user.triathlon.win + user.triathlon.loss  }}<br>
                 Profights:{{ user.profight.win + user.profight.loss + user.profight.ko }}<br>
+                {% if user.achievement %}
+                    <h4 class="text-center">Achievements</h4>
+                    <div class="col-md-12">
+                        <div class="col-md-4 ">
+                   <span class="fa fa-trophy fa-trophy-gold fa-3x "></span><br>
+                            <div class="pull-right">
+                            {{ gold }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                    <span class="fa fa-trophy fa-trophy-silver fa-3x"></span><br>
+                            <div class="pull-right">
+                            {{ silver }}
+                            </div>
+                    </div>
+                        <div class="col-md-4">
+                    <span class="fa fa-trophy fa-trophy-bronze fa-3x"></span><br>
+                            <div class="pull-right">
+                            {{ bronze }}
+                            </div>
+            </div>
+                    </div>
+                {% endif %}
+
+
             </div>
         </div>
        {% if user.about %}
