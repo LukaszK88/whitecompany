@@ -23,7 +23,11 @@
         <h2 class="text-center ">Mercenary profile</h2>
         <hr>
         <div class="well">
+            {% for country in countriesCompetedIn %}
+                <span class="flag-icon flag-icon-{{ country.location | lower}}"></span>
+            {% endfor %}
         <div class="row">
+
             <div class="col-md-6">
                 <h3 class="text-center">Personal </h3>
                 Age:{{ user.age }}<br>
@@ -101,7 +105,7 @@
         <ul class="fa-ul ">
         {% for achievement in user.achievement %}
 
-            <li class="pull-left achievement" > <i class="{{ achievement.place }}"></i>{{ achievement.date | date("m/Y")}} {{ achievement.competition_name }} {{ achievement.location }} {{ achievement.category }}
+            <li class="pull-left achievement" > <i class="{{ achievement.place }}"></i>{{ achievement.date | date("m/Y")}} {{ achievement.competition_name }} <span class="flag-icon flag-icon-{{ achievement.location | lower}}"></span> {{ achievement.category }}
             {% if user.id == auth.user.id %}
                 <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#updateAchievement{{ achievement.id }}"  ><span class="glyphicon glyphicon-pencil"></span></button>
                 <a href="{{ path_for('delete.achievement',{achievementId : achievement.id}) }}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>

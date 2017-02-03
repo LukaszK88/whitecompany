@@ -63,6 +63,7 @@ class UserController extends Controller{
 
         $bronze = $user->achievement()->where('place','fa fa-trophy fa-trophy-bronze')->count();
 
+        $countriesCompetedIn = $user->achievement()->orderBy('location','asc')->groupBy('location')->get();
 
         return $this->view->render($response, 'user/profilePage.twig',[
             'user' => $user,
@@ -70,6 +71,7 @@ class UserController extends Controller{
             'gold' => $gold,
             'silver' => $silver,
             'bronze' => $bronze,
+            'countriesCompetedIn' => $countriesCompetedIn,
         ]);
     }
     
