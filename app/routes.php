@@ -15,6 +15,8 @@ $app->get('/error[/{param1}]','UserController:getModalErrors')->setName('get.err
 
 $app->get('/profile[/{userId}[/{error}]]','UserController:getUserProfile')->setName('get.profile.page');
 
+$app->post('/weaponwmfc','CalculatorController:postWmfcCheck')->setName('post.wmfc.check');
+
 $app->group('',function(){
 
 

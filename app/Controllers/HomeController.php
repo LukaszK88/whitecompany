@@ -14,9 +14,17 @@ use Whitecompany\Models\User;
 class HomeController extends Controller{
 
 
+    public function users(){
+
+        $users = User::where('name','!=','')->orderBy('total_points','DESC')->get();
+        
+        return $users;
+        
+    }
+    
     public function index($request, $response){
 
-        $users = User::where('name','!=','')->get();
+        $users = User::where('name','!=','')->orderBy('total_points','DESC')->get();
 
         return $this->view->render($response, 'home.twig',[
             'users' => $users,

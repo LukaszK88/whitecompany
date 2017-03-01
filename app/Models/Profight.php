@@ -19,6 +19,9 @@ class Profight extends Model{
         'user_id',
         'win',
         'loss',
+        'fc_1',
+        'fc_2',
+        'fc_3',
         'ko',
         'points',
     ];

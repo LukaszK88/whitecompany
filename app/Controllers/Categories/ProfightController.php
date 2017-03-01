@@ -25,17 +25,30 @@ class ProfightController extends Controller{
 
         $user = User::find($request->getParam('figterId'));
 
+        //Select placement for the 1st class
+        if($request->getParam('fc')== '1st'){
+            $winner = 1;
+        }elseif ($request->getParam('fc')== '2nd'){
+            $second = 1;
+        }elseif ($request->getParam('fc')== '3rd'){
+            $third = 1;
+        }
+
+
 
 
         $user->profight()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
             'win' =>( $user->profight->win + $request->getParam('win')),
             'loss' =>( $user->profight->loss + $request->getParam('loss')),
+            'fc_1' => ( $user->profight->fc_1 + $winner),
+            'fc_2' => ( $user->profight->fc_2 + $second),
+            'fc_3' => ( $user->profight->fc_3 + $third),
             'ko' =>( $user->profight->loss + $request->getParam('ko')),
-            'points' =>( $user->profight->points + (($request->getParam('win')*3) + ($request->getParam('ko')*4) + $request->getParam('loss'))),
+            'points' =>( $user->profight->points + (($request->getParam('win')*3) + ($request->getParam('ko')*4) + $request->getParam('loss'))+(($winner * 10 ) + ($second*6) + ($third*3))),
         ]);
 
         $user->update([
-            'total_points' => ($user->total_points + (($request->getParam('win')*3) + ($request->getParam('ko')*4) + $request->getParam('loss')))
+            'total_points' => ($user->total_points + (($request->getParam('win')*3) + ($request->getParam('ko')*4) + $request->getParam('loss'))+(($winner * 10 ) + ($second*6) + ($third*3)))
         ]);
 
 

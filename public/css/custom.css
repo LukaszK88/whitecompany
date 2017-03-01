@@ -1,3 +1,7 @@
+@font-face {
+    font-family: ringBearer;
+    src: url(../fonts/ringbearer.medium.ttf);
+}
 
 body{
     background-image: url("../img/Cool-Light-Grey-background-fantastic-imago-creative-studio-video-production.jpg");
@@ -9,7 +13,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
+    font-family: ringBearer;
 
 }
 hr{
@@ -54,7 +58,7 @@ hr{
     transition:         transform .8s ease-in-out;
 }
 .nav-photo:hover  {
-    -webkit-transform: rotate(360deg);
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
@@ -78,6 +82,22 @@ hr{
 
 .fa-trophy-bronze{
     color: brown;
+}
+
+
+.badge-gold{
+    background-color: gold;
+    color: black;
+}
+
+.badge-silver{
+    background-color: #929292;
+    color: black;
+}
+
+.badge-bronze{
+    background-color: brown;
+    color: black;
 }
 
 .achievement{

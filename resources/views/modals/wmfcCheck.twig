@@ -1,0 +1,42 @@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="wmfcCheck" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Update your details</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ path_for('post.wmfc.check') }}" method="post">
+                        <fieldset>
+                            <div class="form-group {{ errors.balance ? 'has-error': '' }} ">
+                                <label for="balance">Point of Balance</label><br>
+                                <input class="ex1" data-slider-id='ex1Slider' id="balance" name="balance" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="0.5" data-slider-value="">
+
+                                {% if errors.balance %}
+                                    <span class="help-block">
+                                    {{ errors.balance | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+                            <div class="form-group {{ errors.weight ? 'has-error': '' }} ">
+                                <label for="weight">Weapon Weight</label><br>
+                                <input class="ex1" data-slider-id='ex1Slider' id="weight" name="weight" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="0.01" data-slider-value="">
+
+                                {% if errors.weight %}
+                                    <span class="help-block">
+                                    {{ errors.weight | first }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <input type="submit" value="Update" class="btn btn-lg btn-custom btn-block">
+                            {{ csrf.field | raw }}
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

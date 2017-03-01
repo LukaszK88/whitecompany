@@ -74,6 +74,8 @@ $container['view'] = function($container){
     ]);
 
     $view->getEnvironment()->addGlobal('flash',$container->flash);
+// add users globally 
+    $view->getEnvironment()->addGlobal('users',$container->HomeController->users());
 
     
     return $view;
@@ -87,6 +89,10 @@ $container['validator'] = function($container){
 
 $container['HomeController'] = function($container){
     return new \Whitecompany\Controllers\HomeController($container);
+};
+
+$container['CalculatorController'] = function($container){
+    return new \Whitecompany\Controllers\CalculatorController($container);
 };
 
 $container['UserController'] = function($container){

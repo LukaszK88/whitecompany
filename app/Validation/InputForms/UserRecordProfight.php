@@ -17,6 +17,7 @@ class UserRecordProfight{
             'win' => v::numeric(),
             'loss' => v::numeric(),
             'ko' => v::numeric(),
+           // 'fc' => v::alnum(),
         ];
     }
 

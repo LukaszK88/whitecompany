@@ -27,6 +27,7 @@
 
 </head>
 <body>
+<?php include_once("analyticstracking.php") ?>
 <div class="se-pre-con"></div>
 
     {% include 'templates/partials/navigation.twig' %}
@@ -36,6 +37,8 @@
     {% include 'auth/signin.twig' %}
 
     {% include 'user/profile.twig' %}
+
+    {% include 'modals/wmfcCheck.twig' %}
 
 
 
@@ -66,7 +69,7 @@
 <!-- Latest compiled and minified JavaScript -->
     <script src="{{ base_url() }}/js/bootstrap.min.js"></script>
     <script src="{{ base_url() }}/js/bootstrap-datepicker.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+    <script src="{{ base_url() }}/js/bootstrap-select.js"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
     <script src="{{ base_url() }}/js/bootstrap-slider.min.js"></script>
@@ -128,6 +131,13 @@
             });
         </script>
     {% endif %}
+{% if param1|first == 'wmfcCheck' %}
+    <script>
+        $(window).load(function(){
+            $('#wmfcCheck').modal('show');
+        });
+    </script>
+{% endif %}
 
     {% if userId.error  == 'achievement' %}
         <script>
@@ -276,6 +286,21 @@
     $(document).ready(function() {
         $('.profile-photo').addClass('profile-photo-intro');
     } );
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-91406869-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<script>
+    $(document).ready(function () {
+        $('.selectpicker').selectpicker();
+    });
 </script>
 </body>
 </html>
