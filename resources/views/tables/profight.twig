@@ -34,14 +34,14 @@
 
                 <td><a href="{{ path_for('get.profile.page',{ userId : user.id}) }}">{{ user.name }}</a></td>
 
-                <td>{{ user.profight.win + user.profight.loss }}</td>
-                <td>{{ user.profight.win }}</td>
-                <td>{{ user.profight.ko }}</td>
-                <td>{{ user.profight.loss }}</td>
-                <td>{{ user.profight.fc_1 }}</td>
-                <td>{{ user.profight.fc_2 }}</td>
-                <td>{{ user.profight.fc_3 }}</td>
-                <td>{{ user.profight.points }}</td>
+                <td>{{ user.profight.sum('win') + user.profight.sum('loss') + user.profight.sum('ko') }}</td>
+                <td>{{ user.profight.sum('win') }}</td>
+                <td>{{ user.profight.sum('ko') }}</td>
+                <td>{{ user.profight.sum('loss') }}</td>
+                <td>{{ user.profight.sum('fc_1') }}</td>
+                <td>{{ user.profight.sum('fc_2')}}</td>
+                <td>{{ user.profight.sum('fc_3') }}</td>
+                <td>{{ user.profight.sum('points') }}</td>
 
                 {% if auth.admin %}
 

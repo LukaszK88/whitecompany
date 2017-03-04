@@ -47,32 +47,32 @@ class User extends Model{
 
     public function bohurt(){
 
-        return $this->hasOne(Bohurt::class);
+        return $this->hasMany(Bohurt::class);
     }
     
     public function triathlon(){
 
-        return $this->hasOne(Triathlon::class);
+        return $this->hasMany(Triathlon::class);
     }
 
     public function sword(){
 
-        return $this->hasOne(Sword::class);
+        return $this->hasMany(Sword::class);
     }
 
     public function longsword(){
 
-        return $this->hasOne(Longsword::class);
+        return $this->hasMany(Longsword::class);
     }
 
     public function polearm(){
 
-        return $this->hasOne(Polearm::class);
+        return $this->hasMany(Polearm::class);
     }
 
     public function profight(){
 
-        return $this->hasOne(Profight::class);
+        return $this->hasMany(Profight::class);
     }
     
     public function achievement(){

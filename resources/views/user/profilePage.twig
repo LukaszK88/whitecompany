@@ -49,13 +49,13 @@
             </div>
             <div class="col-md-6">
                 <h3 class="text-center">Fighting Exp </h3>
-                Total fights:{{ user.bohurt.fights +  user.sword.win + user.sword.loss + user.longsword.win + user.longsword.loss + user.polearm.win + user.polearm.loss + user.triathlon.win + user.triathlon.loss + user.profight.win + user.profight.loss + user.profight.ko}}<br>
-                Bohurt fights:{{ user.bohurt.fights }}<br>
-                Sword and shield fights:{{ user.sword.win + user.sword.loss }}<br>
-                Longsword fights:{{ user.longsword.win + user.longsword.loss  }}<br>
-                Polearm fights:{{ user.polearm.win + user.polearm.loss  }}<br>
-                Triathlon fights:{{ user.triathlon.win + user.triathlon.loss  }}<br>
-                Profights:{{ user.profight.win + user.profight.loss + user.profight.ko }}<br>
+                Total fights:{{ user.bohurt.sum('fights') +  user.sword.sum('win') + user.sword.sum('loss') + user.longsword.sum('win') + user.longsword.sum('loss') + user.polearm.sum('win') + user.polearm.sum('loss') + user.triathlon.sum('win') + user.triathlon.sum('loss') + user.profight.sum('win') + user.profight.sum('loss') + user.profight.sum('ko')}}<br>
+                Bohurt fights:{{ user.bohurt.sum('fights') }}<br>
+                Sword and shield fights:{{ user.sword.sum('win') + user.sword.sum('loss') }}<br>
+                Longsword fights:{{ user.longsword.sum('win') + user.longsword.sum('loss')  }}<br>
+                Polearm fights:{{ user.polearm.sum('win') + user.polearm.sum('loss')  }}<br>
+                Triathlon fights:{{ user.triathlon.sum('win') + user.triathlon.sum('loss')  }}<br>
+                Profights:{{ user.profight.sum('win') + user.profight.sum('loss') + user.profight.sum('ko') }}<br>
                 {% if user.achievement %}
                     <h4 class="text-center">Achievements</h4>
                     <div class="col-md-12">

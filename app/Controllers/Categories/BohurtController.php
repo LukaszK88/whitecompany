@@ -24,13 +24,14 @@ class BohurtController extends Controller{
 
         $user = User::find($request->getParam('figterId'));
 
-        $user->bohurt()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
-            'fights' =>( $user->bohurt->fights +($request->getParam('won')+$request->getParam('down')+$request->getParam('last')+$request->getParam('suicide'))),
-            'down' =>( $user->bohurt->down + $request->getParam('down')),
-            'last' =>( $user->bohurt->last + $request->getParam('last')),
-            'won' =>( $user->bohurt->won + $request->getParam('won')),
-            'suicide' =>( $user->bohurt->suicide + $request->getParam('suicide')),
-            'points' =>( $user->bohurt->points + ((($request->getParam('won')*2)+$request->getParam('last'))-($request->getParam('suicide')*3))),
+        $user->bohurt()->create([
+            'user_id' => $request->getParam('figterId'),
+            'fights' =>(($request->getParam('won')+$request->getParam('down')+$request->getParam('last')+$request->getParam('suicide'))),
+            'down' =>($request->getParam('down')),
+            'last' =>($request->getParam('last')),
+            'won' =>($request->getParam('won')),
+            'suicide' =>($request->getParam('suicide')),
+            'points' =>(((($request->getParam('won')*2)+$request->getParam('last'))-($request->getParam('suicide')*3))),
         ]);
 
         $user->update([

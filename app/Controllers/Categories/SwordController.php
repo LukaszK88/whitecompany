@@ -27,10 +27,11 @@ class SwordController extends Controller{
 
 
 
-        $user->sword()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
-            'win' =>( $user->sword->win + $request->getParam('win')),
-            'loss' =>( $user->sword->loss + $request->getParam('loss')),
-            'points' =>( $user->sword->points + $request->getParam('win')),
+        $user->sword()->create([
+            'user_id' => $request->getParam('figterId'),
+            'win' =>( $request->getParam('win')),
+            'loss' =>( $request->getParam('loss')),
+            'points' =>( $request->getParam('win')),
         ]);
 
         $user->update([

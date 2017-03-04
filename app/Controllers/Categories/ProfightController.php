@@ -37,14 +37,15 @@ class ProfightController extends Controller{
 
 
 
-        $user->profight()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
-            'win' =>( $user->profight->win + $request->getParam('win')),
-            'loss' =>( $user->profight->loss + $request->getParam('loss')),
-            'fc_1' => ( $user->profight->fc_1 + $winner),
-            'fc_2' => ( $user->profight->fc_2 + $second),
-            'fc_3' => ( $user->profight->fc_3 + $third),
-            'ko' =>( $user->profight->loss + $request->getParam('ko')),
-            'points' =>( $user->profight->points + (($request->getParam('win')*3) + ($request->getParam('ko')*4) + $request->getParam('loss'))+(($winner * 10 ) + ($second*6) + ($third*3))),
+        $user->profight()->create([
+            'user_id' => $request->getParam('figterId'),
+            'win' =>( $request->getParam('win')),
+            'loss' =>( $request->getParam('loss')),
+            'fc_1' => ( $winner ),
+            'fc_2' => ( $second ),
+            'fc_3' => ( $third ),
+            'ko' =>( $request->getParam('ko')),
+            'points' =>((($request->getParam('win')*3) + ($request->getParam('ko')*4) + $request->getParam('loss'))+(($winner * 10 ) + ($second*6) + ($third*3))),
         ]);
 
         $user->update([

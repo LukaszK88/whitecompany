@@ -27,10 +27,11 @@ class LongswordController extends Controller{
 
 
 
-        $user->longsword()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
-            'win' =>( $user->longsword->win + $request->getParam('win')),
-            'loss' =>( $user->longsword->loss + $request->getParam('loss')),
-            'points' =>( $user->longsword->points + $request->getParam('win')),
+        $user->longsword()->create([
+            'user_id' => $request->getParam('figterId'),
+            'win' =>( $request->getParam('win')),
+            'loss' =>( $request->getParam('loss')),
+            'points' =>( $request->getParam('win')),
         ]);
 
         $user->update([

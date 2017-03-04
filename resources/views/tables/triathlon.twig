@@ -25,11 +25,11 @@
 
                 <td><a href="{{ path_for('get.profile.page',{ userId : user.id}) }}">{{ user.name }}</a></td>
 
-                <td>{{ user.triathlon.win + user.triathlon.loss }}</td>
-                <td>{{ user.triathlon.win }}</td>
-                <td>{{ user.triathlon.loss }}</td>
+                <td>{{ user.triathlon.sum('win') + user.triathlon.sum('loss') }}</td>
+                <td>{{ user.triathlon.sum('win') }}</td>
+                <td>{{ user.triathlon.sum('loss') }}</td>
 
-                <td>{{ user.triathlon.points }}</td>
+                <td>{{ user.triathlon.sum('points') }}</td>
 
                 {% if auth.admin %}
 

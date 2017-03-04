@@ -27,10 +27,11 @@ class PolearmController extends Controller{
 
 
 
-        $user->polearm()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
-            'win' =>( $user->polearm->win + $request->getParam('win')),
-            'loss' =>( $user->polearm->loss + $request->getParam('loss')),
-            'points' =>( $user->polearm->points + $request->getParam('win')),
+        $user->polearm()->create([
+            'user_id' => $request->getParam('figterId'),
+            'win' =>( $request->getParam('win')),
+            'loss' =>( $request->getParam('loss')),
+            'points' =>( $request->getParam('win')),
         ]);
 
         $user->update([

@@ -7,7 +7,7 @@
             <tr> <th width="5%">Nr</th>
                 <th>Fighter</th>
 
-                <th width="8%">Fights</th>
+                <th width="15%">Fights</th>
                 <th width="8%">Won</th>
                 <th width="15%">Last man</th>
                 <th width="8%">Down</th>
@@ -30,18 +30,18 @@
 
                 <td><a href="{{ path_for('get.profile.page',{ userId : user.id}) }}">{{ user.name }}</a></td>
 
-                <td>{{ user.bohurt.fights }}</td>
-                <td>{{ user.bohurt.won }}</td>
-                <td>{{ user.bohurt.last }}</td>
-                <td>{{ user.bohurt.down }}</td>
-                <td>{{ user.bohurt.suicide }}</td>
-                {% if user.bohurt.fights %}
-                <td>{{ ((((user.bohurt.down + user.bohurt.suicide)/user.bohurt.fights) * 100)-100) | abs | number_format}} %</td>
+                <td>{{ user.bohurt.sum('fights') }}</td>
+                <td>{{ user.bohurt.sum('won') }}</td>
+                <td>{{ user.bohurt.sum('last') }}</td>
+                <td>{{ user.bohurt.sum('down') }}</td>
+                <td>{{ user.bohurt.sum('suicide') }}</td>
+                {% if user.bohurt.sum('fights') %}
+                <td>{{ ((((user.bohurt.sum('down') + user.bohurt.sum('suicide'))/user.bohurt.sum('fights')) * 100)-100) | abs | number_format}} %</td>
                     {% else %}
                     <td></td>
                 {% endif %}
 
-                <td>{{ user.bohurt.points }}</td>
+                <td>{{ user.bohurt.sum('points') }}</td>
 
                 {% if auth.admin %}
 

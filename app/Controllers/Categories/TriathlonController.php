@@ -25,10 +25,11 @@ class TriathlonController extends Controller{
 
         $user = User::find($request->getParam('figterId'));
 
-        $user->triathlon()->updateOrCreate(['user_id' => $request->getParam('figterId')],[
-            'win' =>( $user->triathlon->win + $request->getParam('win')),
-            'loss' =>( $user->triathlon->loss + $request->getParam('loss')),
-            'points' =>( $user->triathlon->points + $request->getParam('win')),
+        $user->triathlon()->create([
+            'user_id' => $request->getParam('figterId'),
+            'win' =>( $request->getParam('win')),
+            'loss' =>( $request->getParam('loss')),
+            'points' =>( $request->getParam('win')),
         ]);
 
         $user->update([
