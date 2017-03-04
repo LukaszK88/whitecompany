@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b126d366-09d2-4620-a6d5-bff5084c4d44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/Categories/BohurtController.php" afterPath="$PROJECT_DIR$/app/Controllers/Categories/BohurtController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/Categories/LongswordController.php" afterPath="$PROJECT_DIR$/app/Controllers/Categories/LongswordController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/Categories/PolearmController.php" afterPath="$PROJECT_DIR$/app/Controllers/Categories/PolearmController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/Categories/ProfightController.php" afterPath="$PROJECT_DIR$/app/Controllers/Categories/ProfightController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/Categories/SwordController.php" afterPath="$PROJECT_DIR$/app/Controllers/Categories/SwordController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/Categories/TriathlonController.php" afterPath="$PROJECT_DIR$/app/Controllers/Categories/TriathlonController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/User.php" afterPath="$PROJECT_DIR$/app/Models/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/modals/wmfcCheck.twig" afterPath="$PROJECT_DIR$/resources/views/modals/wmfcCheck.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tables/bohurt.twig" afterPath="$PROJECT_DIR$/resources/views/tables/bohurt.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tables/longsword.twig" afterPath="$PROJECT_DIR$/resources/views/tables/longsword.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tables/polearm.twig" afterPath="$PROJECT_DIR$/resources/views/tables/polearm.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tables/profight.twig" afterPath="$PROJECT_DIR$/resources/views/tables/profight.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tables/sword.twig" afterPath="$PROJECT_DIR$/resources/views/tables/sword.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tables/triathlon.twig" afterPath="$PROJECT_DIR$/resources/views/tables/triathlon.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templates/partials/navigation.twig" afterPath="$PROJECT_DIR$/resources/views/templates/partials/navigation.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/user/profilePage.twig" afterPath="$PROJECT_DIR$/resources/views/user/profilePage.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Controllers/UserController.php" />
     </list>
     <ignored path="generator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,22 +25,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="triathlon.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/tables/triathlon.twig">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-              <folding />
+            <state relative-caret-position="340">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <folding>
+                <element signature="e#126#157#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profilePage.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/user/profilePage.twig">
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
-              <folding />
+            <state relative-caret-position="189">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding>
+                <element signature="e#126#172#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,14 +95,12 @@
         <option value="$PROJECT_DIR$/bootstrap/app.php" />
         <option value="$PROJECT_DIR$/resources/views/tables/all.twig" />
         <option value="$PROJECT_DIR$/resources/views/home.twig" />
-        <option value="$PROJECT_DIR$/app/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/Controllers/CalculatorController.php" />
         <option value="$PROJECT_DIR$/app/Validation/InputForms/WmfcCheck.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/app.twig" />
         <option value="$PROJECT_DIR$/resources/views/templates/partials/navigation.twig" />
         <option value="$PROJECT_DIR$/resources/views/modals/wmfcCheck.twig" />
         <option value="$PROJECT_DIR$/app/routes.php" />
-        <option value="$PROJECT_DIR$/app/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/tables/bohurt.twig" />
         <option value="$PROJECT_DIR$/app/Controllers/Categories/BohurtController.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
@@ -129,6 +115,8 @@
         <option value="$PROJECT_DIR$/app/Controllers/Categories/TriathlonController.php" />
         <option value="$PROJECT_DIR$/resources/views/tables/triathlon.twig" />
         <option value="$PROJECT_DIR$/resources/views/user/profilePage.twig" />
+        <option value="$PROJECT_DIR$/app/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/app/Controllers/UserController.php" />
       </list>
     </option>
   </component>
@@ -202,160 +190,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tables" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="recordUpdates" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modals" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -375,46 +209,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Categories" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whitecompany" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Auth" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -429,17 +223,17 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\whitecompany\resources\views\recordUpdates" />
-      <recent name="C:\xampp\htdocs\whitecompany\resources\views" />
-      <recent name="C:\xampp\htdocs\generator\bootstrap" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\whitecompany\app\Validation\InputForms" />
       <recent name="C:\xampp\htdocs\whitecompany\resources\views\modals" />
       <recent name="C:\xampp\htdocs\whitecompany\app\Controllers" />
       <recent name="C:\xampp\htdocs\whitecompany\public\js" />
       <recent name="C:\xampp\htdocs\whitecompany\tests\unit" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\whitecompany\resources\views\recordUpdates" />
+      <recent name="C:\xampp\htdocs\whitecompany\resources\views" />
+      <recent name="C:\xampp\htdocs\generator\bootstrap" />
     </key>
   </component>
   <component name="RunManager">
@@ -512,12 +306,12 @@
       <workItem from="1487498808034" duration="4156000" />
       <workItem from="1488115679540" duration="4444000" />
       <workItem from="1488383816821" duration="8794000" />
-      <workItem from="1488475539356" duration="17243000" />
+      <workItem from="1488475539356" duration="17420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275112000" />
+    <option name="totallyTimeSpent" value="275289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -760,16 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding>
-            <element signature="e#126#157#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Bohurt.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -850,22 +634,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          <folding>
-            <element signature="e#126#172#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controllers/Categories/BohurtController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <element signature="e#137#177#0#PHP" expanded="true" />
+            <element signature="e#137#177#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -926,6 +700,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/profilePage.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/tables/triathlon.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -934,11 +716,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/profilePage.twig">
+    <entry file="file://$PROJECT_DIR$/app/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
-          <folding />
+        <state relative-caret-position="189">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#126#172#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="e#126#157#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

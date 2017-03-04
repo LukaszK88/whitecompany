@@ -25,21 +25,12 @@ class HomeController extends Controller{
     
     public function index($request, $response){
 
-        $users = User::where('name','!=','')->orderBy('total_points','DESC')->get();
-        
-
-        return $this->view->render($response, 'home.twig',[
-            'users' => $users,
-        ]);
+        return $this->view->render($response, 'home.twig');
     }
     
     public function getFighterDetailsForModal($request, $response, $params){
 
-        
-
         $user = User::where('id',$params['userId'])->get()->first();
-
-       
 
         return $this->view->render($response, 'home.twig',[
             'params' => $params,
