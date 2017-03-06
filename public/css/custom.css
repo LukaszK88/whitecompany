@@ -4,17 +4,12 @@
 }
 
 body{
-    background-image: url("../img/Cool-Light-Grey-background-fantastic-imago-creative-studio-video-production.jpg");
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url(../img/Cool-Light-Grey-background-fantastic-imago-creative-studio-video-production.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     font-family: ringBearer;
-
 }
 hr{
     border-color: black;

@@ -11,7 +11,7 @@
                         <fieldset>
                             <div class="form-group {{ errors.balance ? 'has-error': '' }} ">
                                 <label for="balance">Point of Balance</label><br>
-                                <input class="ex1" data-slider-id='ex1Slider' id="balance" name="balance" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="0.5" data-slider-value="">
+                                <input class="ex1" data-slider-id='ex1Slider' id="balance" name="balance" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="0.5" data-slider-value="{{ errors ? old.balance : '' }}">
 
                                 {% if errors.balance %}
                                     <span class="help-block">
@@ -21,7 +21,7 @@
                             </div>
                             <div class="form-group {{ errors.weight ? 'has-error': '' }} ">
                                 <label for="weight">Weapon Weight</label><br>
-                                <input class="ex1" data-slider-id='ex1Slider' id="weight" name="weight" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="0.01" data-slider-value="">
+                                <input class="ex1" data-slider-id='ex1Slider' id="weight" name="weight" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="0.01" data-slider-value="{{ errors ? old.weight : '' }}">
 
                                 {% if errors.weight %}
                                     <span class="help-block">

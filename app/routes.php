@@ -17,6 +17,10 @@ $app->get('/profile[/{userId}[/{error}]]','UserController:getUserProfile')->setN
 
 $app->post('/weaponwmfc','CalculatorController:postWmfcCheck')->setName('post.wmfc.check');
 
+$app->post('/weaponhmbgroup','CalculatorController:postHmbGroupCheck')->setName('post.hmb.group.check');
+
+$app->post('/weaponhmbduel','CalculatorController:postHmbDuelCheck')->setName('post.hmb.duel.check');
+
 $app->group('',function(){
 
 

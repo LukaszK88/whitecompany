@@ -40,6 +40,8 @@
 
     {% include 'modals/wmfcCheck.twig' %}
 
+    {% include 'modals/hmbCheck.twig' %}
+
 
 
 
@@ -78,6 +80,70 @@
     <!-- Include Date Range Picker -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+    $(document).ready(function(){
+
+        $("#weightGroup").hide();
+        $("#weightDuel").hide();
+        $("#lengthDuel").hide();
+        $("#submitGroupCheck").hide();
+        $("#submitDuelCheck").hide();
+        $("#groupWeapons").hide();
+        $("#duelWeapons").hide();
+
+        $('#catGroup').change(function() {
+            if($(this).is(":checked")) {
+                $("#catDuelsBox").hide();
+                $("#groupWeapons").show();
+
+                    $('#groupWeapons').change(function() {
+                        $("#weightGroup").show();
+                        $("#submitGroupCheck").show();
+                    });
+
+                    }else{
+                $("#catDuelsBox").show();
+                $("#groupWeapons").hide();
+                $("#weightGroup").hide();
+                $("#submitGroupCheck").hide();
+            }
+        });
+
+        //Duels branch
+        $('#catDuels').change(function() {
+            if($(this).is(":checked")) {
+                $("#catGroupBox").hide();
+                $("#duelWeapons").show();
+
+                $('#duelWeapons').change(function() {
+
+                    if(($('option:selected',this).attr('value') == ('Shield')) || ($('option:selected',this).attr('value') == ('Buckler'))){
+                        $("#weightDuel").hide();
+                        $('input[name="weightDuel"]').val(1);
+                        $("#lengthDuel").show();
+                        $("#submitDuelCheck").show();
+                    }else if (($('option:selected',this).attr('value') == ('Longsword')) || ($('option:selected',this).attr('value') == ('Sword'))) {
+                        $("#weightDuel").show();
+                        $("#lengthDuel").show();
+                        $("#submitDuelCheck").show();
+                    }
+
+                });
+
+            }else{
+                $("#catGroupBox").show();
+                $("#duelWeapons").hide();
+                $("#weightDuel").hide();
+                $("#lengthDuel").hide();
+
+                $("#submitDuelCheck").hide();
+            }
+        });
+
+    });
+
+</script>
 
     <script>
 
@@ -131,6 +197,7 @@
             });
         </script>
     {% endif %}
+<!-- WMFC ERROR SHOW -->
 {% if param1|first == 'wmfcCheck' %}
     <script>
         $(window).load(function(){
@@ -138,6 +205,45 @@
         });
     </script>
 {% endif %}
+<!-- DUEL CHECK ERROR SHOW -->
+{% if param1|first == 'hmbDuelCheck' %}
+    <script>
+        $(window).load(function(){
+            $('#hmbCheck').modal('show');
+                $("#catGroupBox").hide();
+                    $('#catDuels').attr('checked', true);
+                        $("#duelWeapons").show();
+                            var weapon = $("#duelWeapon").val();
+                                if(weapon == 'Longsword' || weapon == 'Sword'){
+                                    $("#weightDuel").show();
+                                    $("#lengthDuel").show();
+                                    $("#submitDuelCheck").show();
+                                }else if (weapon == 'Shield' || weapon == 'Buckler'){
+                                    $('input[name="weightDuel"]').val(1);
+                                    $("#lengthDuel").show();
+                                    $("#submitDuelCheck").show();
+                                }
+
+
+
+        });
+    </script>
+{% endif %}
+<!-- GROUP CHECK ERROR SHOW -->
+{% if param1|first == 'hmbGroupCheck' %}
+    <script>
+        $(window).load(function(){
+            $('#hmbCheck').modal('show');
+            $("#catDuelsBox").hide();
+            $('#catGroup').attr('checked', true);
+            $("#groupWeapons").show();
+                $("#weightGroup").show();
+                $("#submitGroupCheck").show();
+
+        });
+    </script>
+{% endif %}
+
 
     {% if userId.error  == 'achievement' %}
         <script>
@@ -302,5 +408,7 @@
         $('.selectpicker').selectpicker();
     });
 </script>
+
+
 </body>
 </html>

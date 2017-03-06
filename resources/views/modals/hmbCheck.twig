@@ -1,0 +1,151 @@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="hmbCheck" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Check your weapon</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ path_for('post.hmb.group.check') }}" method="post">
+                        <fieldset>
+
+
+                                <div id="catGroupBox" class="checkbox">
+                                    <label>
+                                        <input id="catGroup" type="checkbox"> Group
+                                    </label>
+                                </div>
+
+
+                            <div id="groupWeapons">
+                                <div class="form-group {{ errors.groupWeapons ? 'has-error': '' }} ">
+
+                                    <select class="selectpicker show-tick" name="groupWeapons" title="Weapons">
+                                        {% if errors %}
+                                            <option selected >{{ old.groupWeapons }}</option>
+                                        {% endif %}
+                                        <option value="Sabre" >Single-handed swords, sabers, broadsword</option>
+                                        <option value="Falchion" >Falchions</option>
+                                        <option value="Long" >Long (total length is up to 1,400mm) swords, sabers, broadswords</option>
+                                        <option value="TwoHanded">Two-handed bladed weapons of the XIV-XVIIth centuries</option>
+                                        <option value="LongAxe">Long axes and other similar weapons (with a total length of no less than 1m) </option>
+                                        <option value="Halberd">Two-handed: halberds, glaives, poleaxes and similar weapons (with a total length of more than 1,400mm)</option>
+                                    </select>
+
+
+                                    {% if errors.groupWeapons %}
+                                        <span class="help-block">
+                                        {% if errors.groupWeapons %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
+                                            {{ errors.groupWeapons | first }}
+                                </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+
+                                <div id="weightGroup" class="form-group {{ errors.weightGroup ? 'has-error': '' }} ">
+                                    <label for="weightGroup">Weapon Weight</label><br>
+                                    <input class="ex1" data-slider-id='ex1Slider'  name="weightGroup" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="0.01" data-slider-value="{{ errors ? old.weightGroup : '' }}">
+
+                                    {% if errors.weightGroup %}
+                                        <span class="help-block">
+                                    {{ errors.weightGroup | first }}
+                                </span>
+                                    {% endif %}
+                                </div>
+
+
+
+
+
+                                <div id="submitGroupCheck">
+
+                                    <input type="submit" value="Update" class="btn btn-lg btn-custom btn-block">
+
+                                </div>
+                                {{ csrf.field | raw }}
+
+
+                        </fieldset>
+                    </form>
+                <!-- Duel form start -->
+                    <form action="{{ path_for('post.hmb.duel.check') }}" method="post">
+                        <fieldset>
+
+                            <div id="catDuelsBox" class="checkbox">
+                                <label>
+                                    <input id="catDuels" name="catDuels" type="checkbox"> Duels
+                                </label>
+                            </div>
+
+
+                            <div id="duelWeapons">
+                                <div class="form-group {{ errors.duelWeapons ? 'has-error': '' }} ">
+
+                                    <select id="duelWeapon" class="selectpicker show-tick" name="duelWeapons" title="Weapons">
+                                        {% if errors %}
+                                            <option selected >{{ old.duelWeapons }}</option>
+                                        {% endif %}
+                                        <option value="Longsword" >Longsword</option>
+                                        <option value="Sword" >Single handed sword</option>
+                                        <option value="Shield" >Shield</option>
+                                        <option value="Buckler" >Buckler</option>
+                                    </select>
+
+
+                                    {% if errors.duelWeapons %}
+                                        <span class="help-block">
+                                        {% if errors.duelWeapons %}
+                                            <span class="badge"><i class="fa fa-exclamation" ></i></span>
+                                        {% endif %}
+                                            {{ errors.duelWeapons | first }}
+                                </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+
+                                <div id="weightDuel" class="form-group {{ errors.weightDuel ? 'has-error': '' }} ">
+                                    <label for="weightDuel">Weapon Weight</label><br>
+                                    <input class="ex1" data-slider-id='ex1Slider'  name="weightDuel" type="text" data-slider-min="0" data-slider-max="2.3" data-slider-step="0.01" data-slider-value="{{ errors ? old.weightDuel : '' }}">
+
+                                    {% if errors.weightDuel %}
+                                        <span class="help-block">
+                                    {{ errors.weightDuel | first }}
+                                </span>
+                                    {% endif %}
+                                </div>
+
+                                <div id="lengthDuel" class="form-group {{ errors.lengthDuel ? 'has-error': '' }} ">
+                                    <label for="lengthDuel">Length</label><br>
+                                    <input class="ex1" data-slider-id='ex1Slider' name="lengthDuel" type="text" data-slider-min="0" data-slider-max="135" data-slider-step="0.5" data-slider-value="{{ errors ? old.lengthDuel : '' }}">
+
+                                    {% if errors.lengthDuel %}
+                                        <span class="help-block">
+                                    {{ errors.lengthDuel | first }}
+                                </span>
+                                    {% endif %}
+                                </div>
+
+
+                            <div id="submitDuelCheck">
+
+                                <input type="submit" value="Update" class="btn btn-lg btn-custom btn-block">
+
+                            </div>
+                            {{ csrf.field | raw }}
+
+
+                        </fieldset>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
