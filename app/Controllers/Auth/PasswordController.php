@@ -7,6 +7,7 @@
  */
 namespace Whitecompany\Controllers\Auth;
 
+use Whitecompany\Lib\Email;
 use Whitecompany\Models\User;
 use Whitecompany\Controllers\Controller;
 
@@ -68,13 +69,23 @@ class PasswordController extends Controller{
             return $response->withRedirect($this->router->pathFor('auth.password.forgot'));
         }
 
+        //find user if exists in DB
+        $user = User::where('username','=',$request->getParam('username'))->first();
+        
+        //SET temp password for that user
+        User::updateOrCreate(['id' => $user->id],[
+           'password' => '',
+            'temp_password' => md5($request->getParam('username'))
 
-        $this->auth->user()->setTempPassword($request->getParam('username'));
+            ]);
+        
        //send md username as temp password
+        Email::sendEmail($request->getParam('username'), 'Your temporary password for White company ranking' ,
+            'Your password is '.md5($request->getParam('username')));
         
         $this->flash->addMessage('success','We have sent you temporary password');
 
-        return $response->withRedirect($this->router->pathFor('auth.signin'));
+        return $response->withRedirect($this->router->pathFor('home'));
     }
 
 }
