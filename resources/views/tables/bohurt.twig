@@ -14,6 +14,7 @@
                 <th width="8%">Suicides</th>
                 <th width="8%">Ratio</th>
                 <th width="5%">Points</th>
+                <th width="5%">Last Update</th>
 
                 {% if auth.admin %}
                 <th width="5%">Update</th>
@@ -42,6 +43,7 @@
                 {% endif %}
 
                 <td>{{ user.bohurt.sum('points') }}</td>
+                <td>{{ user.bohurt.last().updated_at |date("m/d/Y") }}</td>
 
                 {% if auth.admin %}
 

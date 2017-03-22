@@ -9,7 +9,7 @@
                 <th width="8%">Won</th>
                 <th width="8%">Lost</th>
                 <th width="5%">Points</th>
-
+                <th width="5%">Last Update</th>
                 {% if auth.admin %}
                 <th width="5%">Update</th>
                 {% endif %}
@@ -30,6 +30,7 @@
                 <td>{{ user.triathlon.sum('loss') }}</td>
 
                 <td>{{ user.triathlon.sum('points') }}</td>
+                 <td>{{ user.triathlon.last().updated_at |date("m/d/Y") }}</td>
 
                 {% if auth.admin %}
 

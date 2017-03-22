@@ -18,6 +18,7 @@
                 <th width="8%">FC 2nd</th>
                 <th width="8%">FC 3rd</th>
                 <th width="5%">Points</th>
+                <th width="5%">Last Update</th>
 
                 {% if auth.admin %}
                 <th width="5%">Update</th>
@@ -42,6 +43,7 @@
                 <td>{{ user.profight.sum('fc_2')}}</td>
                 <td>{{ user.profight.sum('fc_3') }}</td>
                 <td>{{ user.profight.sum('points') }}</td>
+                 <td>{{ user.profight.last().updated_at |date("m/d/Y") }}</td>
 
                 {% if auth.admin %}
 
